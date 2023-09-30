@@ -170,10 +170,7 @@ namespace NumbersGame
                 {
 
                 }
-                else
-                {
-                    Console.WriteLine("Mata in ett giltigt svar"); 
-                }
+                
             }
             Console.ReadKey();
             
