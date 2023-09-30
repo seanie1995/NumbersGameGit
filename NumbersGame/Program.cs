@@ -10,7 +10,7 @@ namespace NumbersGame
 {
     internal class Program
     {
-        //Adding random intro
+        //Removing comments and adding this one
         static int CheckGuess(int randomNumber, int input)
         {
            // Too high statemnts
