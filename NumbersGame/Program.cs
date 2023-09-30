@@ -59,7 +59,8 @@ namespace NumbersGame
           
 
             // Number guessing game EASY mode
-            while (true)
+            
+            while (true) // While loop to keep program running unless user decides to end program at the end of each iteration of the game. 
             {
                 Console.WriteLine("Välkommen till spelet! Välj svårighets grad [E]asy, [M]edium eller [H]ard");
                 string userInput = Console.ReadLine();
@@ -77,7 +78,7 @@ namespace NumbersGame
                         int methodReturn = CheckGuess(randomNumber, input); // Method returns -1, 0 or 1 depending on user input. -1, 0 and 1 are then conditions for the following if-statements
                         if (methodReturn == -1)
                         {
-                            Console.WriteLine(tooHigh[random.Next(0, 2)]); // Console writes out randomly selected string from string arrays on lines 56-58 depending on how high/low user input is.                   
+                            Console.WriteLine(tooHigh[random.Next(0, 2)]); // Console writes out randomly selected string from string arrays on lines 56-58 depending on how high/low user input is.                  
                             Console.WriteLine($"Du har {9 - i} försök kvar");            
                             
                         }
