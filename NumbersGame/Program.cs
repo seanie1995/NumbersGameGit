@@ -10,11 +10,10 @@ namespace NumbersGame
 {
     internal class Program
     {
-        //Removing comments and adding this one
-        static int CheckGuess(int randomNumber, int input)
+        
+        static int CheckGuess(int randomNumber, int input) // Method returns certain integers that trigger different if-statements in the program. See line 78 for example
         {
-           // Too high statemnts
-
+           
             if (input == randomNumber)
             {
                 return 1;
@@ -23,19 +22,15 @@ namespace NumbersGame
             {               
                 return -1;
             }        
-           
-            // Too low statements
-            
+                          
             else if (input < randomNumber)
-            {
-                
+            {              
                 return 0;
-            }
-            
+            }        
             return 2;
         }
 
-        static void HowWarmCold(int input, int randomNumber)
+        static void HowWarmCold(int input, int randomNumber) // Compares user input to a range of numbers to guess how far off or how close the guess is to the target number
         {
             if (input >= randomNumber + 5 || input <= randomNumber -5 )
             {
@@ -56,34 +51,33 @@ namespace NumbersGame
         }
         static void Main(string[] args)
         {
-            Random random = new Random();
+            Random random = new Random(); 
             int randomNumber;
-            string[] positiveOutcome = { "Du har rätt! Grattis!", "Bra jobbat!", "Snyggt! Du gissade rätt" };
+            string[] positiveOutcome = { "Du har rätt! Grattis!", "Bra jobbat!", "Snyggt! Du gissade rätt" }; // Arrays containing different messages to deliver to user to make program less monotonous
             string[] tooHigh = { "För högt!", "Du siktar för högt!", "Det var förmycket!" };
             string[] tooLow = { "För lågt!", "Du siktar för lågt!.", "Tyvärr, men för lågt!" };
-            bool loop = true;
+          
 
             // Number guessing game EASY mode
-
-            while (loop == true)
+            while (true)
             {
                 Console.WriteLine("Välkommen till spelet! Välj svårighets grad [E]asy, [M]edium eller [H]ard");
                 string userInput = Console.ReadLine();
 
                 if (userInput == "E" || userInput == "e")
                 {
-                    randomNumber = random.Next(0, 10);
+                    randomNumber = random.Next(0, 10); // Selects random number to be guessed
                     
                     Console.WriteLine("Du har (10) försök att gissa rätt. Talet är mellan 0 och 10");
                     Console.WriteLine("Vilket tal tänker jag på?");
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 10; i++) // For loop that iterates a certain number of times depending on difficulty level chosen. In this casee, Easy = 10 attempts
                     {
                         int input = int.Parse(Console.ReadLine());
                         HowWarmCold(input, randomNumber);
-                        int methodReturn = CheckGuess(randomNumber, input);
+                        int methodReturn = CheckGuess(randomNumber, input); // Method returns -1, 0 or 1 depending on user input. -1, 0 and 1 are then conditions for the following if-statements
                         if (methodReturn == -1)
                         {
-                            Console.WriteLine(tooHigh[random.Next(0, 2)]);                           
+                            Console.WriteLine(tooHigh[random.Next(0, 2)]); // Console writes out randomly selected string from string arrays on lines 56-58 depending on how high/low user input is.                   
                             Console.WriteLine($"Du har {9 - i} försök kvar");            
                             
                         }
@@ -165,14 +159,14 @@ namespace NumbersGame
                     }
                 }
 
-                Console.WriteLine("Vill du starta om spelet? Y/N:");
+                Console.WriteLine("Vill du starta om spelet? J/N:");
                 userInput = Console.ReadLine();
                  if (userInput == "N" || userInput == "n")
                 {
                     Console.WriteLine("Bye bye");
-                    loop = false;
+                    break;
                 }               
-                 else if (userInput == "Y" || userInput == "y")
+                 else if (userInput == "J" || userInput == "n")
                 {
 
                 }
